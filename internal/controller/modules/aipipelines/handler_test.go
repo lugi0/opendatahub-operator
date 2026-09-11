@@ -87,7 +87,7 @@ func TestBuildModuleCRDefaultsArgoToManaged(t *testing.T) {
 	}
 }
 
-func TestOperatorManifestsAndPlatformEnv(t *testing.T) {
+func TestOperatorManifestsAndEnvironment(t *testing.T) {
 	h := aipipelines.NewHandler()
 	platform := &modules.PlatformContext{
 		ManifestsBasePath: "/opt/manifests",
@@ -108,9 +108,6 @@ func TestOperatorManifestsAndPlatformEnv(t *testing.T) {
 	}
 	if got := h.GetExtraEnv()["DSPO_ENABLEAIPIPELINESMODULECONTROLLER"]; got != "true" {
 		t.Fatalf("expected module controller handoff flag, got %q", got)
-	}
-	if got := h.GetPlatformEnv(platform)["DSPO_PLATFORMVERSION"]; got != "3.6.0" {
-		t.Fatalf("expected platform version env, got %q", got)
 	}
 }
 

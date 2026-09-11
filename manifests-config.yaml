@@ -53,7 +53,7 @@ components:
   datasciencepipelines:
     odh:
       repo: lugi0/data-science-pipelines-operator
-      ref: codex/rhoaieng-91565-argo-lifecycle@c8bc8918d70feec9dc9c8e494b87105ca2b1cc47
+      ref: codex/rhoaieng-91567-platform-config-status@dbe9818e8a8536a83217b1e22e0af1e3bae4a2b2
       sourcePath: config
     rhoai:
       repo: red-hat-data-services/data-science-pipelines-operator
