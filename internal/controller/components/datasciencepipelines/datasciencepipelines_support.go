@@ -25,7 +25,6 @@ const (
 	LegacyComponentName = "data-science-pipelines-operator"
 
 	platformVersionParamsKey          = "PLATFORMVERSION"
-	fipsEnabledParamsKey              = "FIPSENABLED"
 	argoWorkflowsControllersParamsKey = "ARGOWORKFLOWSCONTROLLERS"
 )
 
