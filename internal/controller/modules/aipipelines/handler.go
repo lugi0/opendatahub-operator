@@ -28,7 +28,6 @@ const (
 	crName              = "default-aipipelines"
 	deploymentName      = "data-science-pipelines-operator-controller-manager"
 	moduleControllerEnv = "DSPO_ENABLEAIPIPELINESMODULECONTROLLER"
-	platformVersionEnv  = "DSPO_PLATFORMVERSION"
 	controllerImageEnv  = "RELATED_IMAGE_ODH_DATA_SCIENCE_PIPELINES_OPERATOR_CONTROLLER_IMAGE"
 	odhOverlayPath      = "overlays/odh/dspo"
 	rhoaiOverlayPath    = "overlays/rhoai/dspo"
@@ -127,16 +126,6 @@ func (h *handler) BuildModuleCR(
 	u.SetName(h.Config.CRName)
 
 	return u, nil
-}
-
-func (h *handler) GetPlatformEnv(platform *modules.PlatformContext) map[string]string {
-	if platform == nil {
-		return nil
-	}
-
-	return map[string]string{
-		platformVersionEnv: platform.Release.Version.String(),
-	}
 }
 
 // CleanupLegacyCR removes the in-tree DataSciencePipelines CR after its

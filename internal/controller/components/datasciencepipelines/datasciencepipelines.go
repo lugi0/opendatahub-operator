@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"strconv"
 
 	operatorv1 "github.com/openshift/api/operator/v1"
 	k8serr "k8s.io/apimachinery/pkg/api/errors"
@@ -40,10 +39,8 @@ func (s *componentHandler) GroupVersionKind() schema.GroupVersionKind {
 func (s *componentHandler) Init(_ common.Platform, cfg operatorconfig.OperatorSettings) error {
 	manifestsBasePath := cfg.ManifestsBasePath
 	release := cluster.GetRelease()
-	clusterInfo := cluster.GetClusterInfo()
 	extraParams := map[string]string{
 		platformVersionParamsKey: release.Version.String(),
-		fipsEnabledParamsKey:     strconv.FormatBool(clusterInfo.FipsEnabled),
 	}
 	if err := deploy.ApplyParams(paramsPath(manifestsBasePath), "params.env", imageParamMap, extraParams); err != nil {
 		return fmt.Errorf("failed to update images on path %s: %w", paramsPath(manifestsBasePath), err)
