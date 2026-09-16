@@ -52,8 +52,8 @@ components:
       sourcePath: config
   datasciencepipelines:
     odh:
-      repo: opendatahub-io/data-science-pipelines-operator
-      ref: main@94e3f7ae53b6ec8541359fbdc180860caa1653cc
+      repo: lugi0/data-science-pipelines-operator
+      ref: codex/rhoaieng-91567-platform-config-status@a2456cd5283cf77da42b1eb72d6c30c7160f8ea6
       sourcePath: config
     rhoai:
       repo: red-hat-data-services/data-science-pipelines-operator
